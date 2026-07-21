@@ -1,3 +1,5 @@
+var timeSet = false;
+
 function getEndTime() {
   const end = new Date();
   end.setSeconds(
@@ -70,15 +72,19 @@ function handleSecondClick(add = true) {
 function setCurrentTime() {
   const now = new Date();
   document.getElementById("currentTime").innerHTML = now.toLocaleTimeString();
-  setEndTime();
+  if (!timeSet) {
+    setEndTime();
+  } else {
+    setRemainingTime();
+  }
 }
 
 function startClick() {
-  // Stop time being adjusted
-  document.getElementById("formSection").remove();
-  // we still want to check the time every second
+  timeSet = true;
+  document.getElementById("formSection").classList.add("d-none");
+  document.getElementById("startBtn").classList.add("d-none");
 }
 
 setInterval(() => {
-  (setCurrentTime(), 1000);
-});
+  setCurrentTime();
+}, 1000);
