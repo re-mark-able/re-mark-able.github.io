@@ -17,105 +17,126 @@
       <div class="row">
         <div class="col-12 text-center"><h1>Mark's Countdown Timer</h1></div>
       </div>
-
-      <div class="row g-3 d-flex justify-content-center">
-        <div class="col-2">
-          <label for="hoursInput" class="form-label">Hours</label>
-          <input
-            onKeyUp="setEndTime()"
-            type="number"
-            class="form-control form-control-lg"
-            id="hoursInput"
-            value="0"
-          /><br />
-          <div class="d-grid gap-2">
-            <div class="btn-group" role="group" aria-label="Hours Buttons">
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick="handleHourClick(false)"
+      <div id="pageContent">
+        <div class="row g-3 d-flex justify-content-center" id="formSection">
+          <div class="col-2">
+            <label for="hoursInput" class="form-label">Hours</label>
+            <input
+              onKeyUp="setEndTime()"
+              type="number"
+              class="form-control form-control-lg"
+              id="hoursInput"
+              value="0"
+            /><br />
+            <div class="d-grid gap-2">
+              <div class="btn-group" role="group" aria-label="Hours Buttons">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  onClick="handleHourClick(false)"
+                >
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  onClick="handleHourClick(true)"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <label for="minutesInput" class="form-label">Minutes</label>
+            <input
+              onKeyUp="setEndTime()"
+              type="number"
+              class="form-control form-control-lg"
+              id="minutesInput"
+              value="0"
+            /><br />
+            <div class="d-grid gap-2">
+              <div
+                class="btn-group btn-sm"
+                role="group"
+                aria-label="Minutes Buttons"
               >
-                <i class="fa-solid fa-minus"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick="handleHourClick(true)"
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  onClick="handleMinuteClick(false)"
+                >
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  onClick="handleMinuteClick(true)"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <label for="secondsInput" class="form-label">Seconds</label>
+            <input
+              onKeyUp="setEndTime()"
+              type="number"
+              class="form-control form-control-lg"
+              id="secondsInput"
+              value="0"
+            /><br />
+            <div class="d-grid gap-2">
+              <div
+                class="btn-group btn-sm"
+                role="group"
+                aria-label="Second Buttons"
               >
-                <i class="fa-solid fa-plus"></i>
-              </button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  onClick="handleSecondClick(false)"
+                >
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                  onClick="handleSecondClick(true)"
+                >
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-2">
-          <label for="minutesInput" class="form-label">Minutes</label>
-          <input
-            onKeyUp="setEndTime()"
-            type="number"
-            class="form-control form-control-lg"
-            id="minutesInput"
-            value="0"
-          /><br />
-          <div class="d-grid gap-2">
-            <div class="btn-group" role="group" aria-label="Minutes Buttons">
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick="handleMinuteClick(false)"
-              >
-                <i class="fa-solid fa-minus"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick="handleMinuteClick(true)"
-              >
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
+        <hr />
+        <div class="row g-3 d-flex justify-content-center">
+          <div class="col-3">Current time:</div>
+          <div class="col-3 h1" id="currentTime"></div>
+        </div>
+        <div class="row g-3 d-flex justify-content-center">
+          <div class="col-3">End time:</div>
+          <div class="col-3 h1" id="endTime"></div>
+        </div>
+        <div class="row g-3 d-flex justify-content-center">
+          <div class="col-3">Time remaining:</div>
+          <div class="col-3 h1" id="remainingTime"></div>
+        </div>
+        <hr />
+        <div class="row g-3 d-flex justify-content-center">
+          <div class="col-3 text-center">
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              onClick="startClick()"
+            >
+              Start
+            </button>
           </div>
         </div>
-        <div class="col-2">
-          <label for="secondsInput" class="form-label">Seconds</label>
-          <input
-            onKeyUp="setEndTime()"
-            type="number"
-            class="form-control form-control-lg"
-            id="secondsInput"
-            value="0"
-          /><br />
-          <div class="d-grid gap-2">
-            <div class="btn-group" role="group" aria-label="Second Buttons">
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick="handleSecondClick(false)"
-              >
-                <i class="fa-solid fa-minus"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary"
-                onClick="handleSecondClick(true)"
-              >
-                <i class="fa-solid fa-plus"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div class="row g-3 d-flex justify-content-center">
-        <div class="col-3">Current time:</div>
-        <div class="col-3 h1" id="currentTime"></div>
-      </div>
-      <div class="row g-3 d-flex justify-content-center">
-        <div class="col-3">End time:</div>
-        <div class="col-3 h1" id="endTime"></div>
-      </div>
-      <div class="row g-3 d-flex justify-content-center">
-        <div class="col-3">Time remaining:</div>
-        <div class="col-3 h1" id="remainingTime"></div>
       </div>
     </div>
 

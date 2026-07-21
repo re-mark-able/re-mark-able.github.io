@@ -1,9 +1,3 @@
-function setCurrentTime() {
-  const now = new Date();
-  document.getElementById("currentTime").innerHTML = now.toLocaleTimeString();
-  setRemainingTime();
-}
-
 function getEndTime() {
   const end = new Date();
   end.setSeconds(
@@ -19,30 +13,15 @@ function getEndTime() {
   return end;
 }
 
-function timeSince(targetDate) {
-  const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+function timeSince() {
+  const end = getEndTime();
+  const total = Date.parse(end) - Date.parse(new Date());
+  const seconds = Math.floor((total / 1000) % 60);
+  const minutes = Math.floor((total / 1000 / 60) % 60);
+  const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+  const days = Math.floor(total / (1000 * 60 * 60 * 24));
 
-  // Target minus current time (in seconds)
-  const deltaSeconds = Math.floor(
-    (targetDate.getTime() - new Date().getTime()) / 1000,
-  );
-
-  const units = [
-    { name: "year", seconds: 31536000 },
-    { name: "month", seconds: 2592000 },
-    { name: "day", seconds: 86400 },
-    { name: "hour", seconds: 3600 },
-    { name: "minute", seconds: 60 },
-    { name: "second", seconds: 1 },
-  ];
-
-  // Find the first unit where the difference matches
-  for (const unit of units) {
-    if (Math.abs(deltaSeconds) >= unit.seconds || unit.name === "second") {
-      const value = Math.round(deltaSeconds / unit.seconds);
-      return rtf.format(value, unit.name);
-    }
-  }
+  return `${hours < 10 ? "0" + hours : hours}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
 }
 
 function setEndTime() {
@@ -52,9 +31,6 @@ function setEndTime() {
 }
 
 function setRemainingTime() {
-  document.getElementById("remainingTime").innerHTML = timeSince(end);
-
-  /*
   const now = new Date();
   const end = getEndTime();
 
@@ -63,10 +39,10 @@ function setRemainingTime() {
   if (diff < 0) {
     document.getElementById("remainingTime").innerHTML = "Time's up!";
   } else {
-    document.getElementById("remainingTime").innerHTML =
-      diff / 1000 + " seconds";
+    document.getElementById("remainingTime").innerHTML = timeSince(
+      end,
+    ).replaceAll("in ", "");
   }
-      */
 }
 
 function handleHourClick(add = true) {
@@ -91,7 +67,18 @@ function handleSecondClick(add = true) {
   setEndTime();
 }
 
+function setCurrentTime() {
+  const now = new Date();
+  document.getElementById("currentTime").innerHTML = now.toLocaleTimeString();
+  setEndTime();
+}
+
+function startClick() {
+  // Stop time being adjusted
+  document.getElementById("formSection").remove();
+  // we still want to check the time every second
+}
+
 setInterval(() => {
   (setCurrentTime(), 1000);
 });
-setEndTime();
