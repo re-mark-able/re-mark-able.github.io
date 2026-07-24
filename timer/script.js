@@ -86,3 +86,15 @@ setInterval(() => {
 }, 1000);
 
 setEndTime();
+
+function changeTheme() {
+  
+  const currentMode = document.documentElement.getAttribute("data-bs-theme");
+  if( currentMode === "dark" ) {
+    document.documentElement.setAttribute("data-bs-theme","light");
+    document.getElementById("theme").classList.remove("fa-moon").add("fa-sun");
+  } else {
+    document.documentElement.setAttribute("data-bs-theme","dark");
+    document.getElementById("theme").classList.remove("fa-sun").add("fa-moon");
+  }
+}
