@@ -92,9 +92,11 @@ function changeTheme() {
   const currentMode = document.documentElement.getAttribute("data-bs-theme");
   if( currentMode === "dark" ) {
     document.documentElement.setAttribute("data-bs-theme","light");
-    document.getElementById("theme").classList.remove("fa-moon").add("fa-sun");
+       document.getElementById("theme").classList.remove("fa-moon");
+    document.getElementById("theme").classList.add("fa-sun");
   } else {
     document.documentElement.setAttribute("data-bs-theme","dark");
-    document.getElementById("theme").classList.remove("fa-sun").add("fa-moon");
+    document.getElementById("theme").classList.remove("fa-sun");
+    document.getElementById("theme").classList.add("fa-moon");
   }
 }
