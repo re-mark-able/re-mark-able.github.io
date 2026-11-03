@@ -175,6 +175,16 @@ a:not(.header-link):hover {
     justify-content: space-between;
 }
 
+
+.error {
+    border-color: #e53e3e !important; 
+    background-color: #fff5f5 !important; 
+}
+span.error-message {
+    color: #e53e3e !important; 
+    font-size: 12px; 
+    display: none; 
+}
 /* FORMS */
 .btn {
     display: inline-block;
@@ -219,10 +229,13 @@ a:not(.header-link):hover {
   width: auto;
 }
 .form-group span {
-  display: inline-block;
   margin-left: 5px;
   font-size: 14px;
   color: #4a5568;
+}
+
+.form-group span:not(.error-message) {
+  display: inline-block;
 }
 
 .form-group label {

@@ -26,27 +26,33 @@
             <form action="#" method="post" id="registerForm">
                 <div class="form-group">
                     <label for="firstName">First name</label>
-                    <input type="text" name="firstName" id="firstName" required>
+                    <input class="register-field" type="text" name="firstName" id="firstName" required>
+                    <span class="error-message" id="firstNameError">You must enter your first name.</span>
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last name</label>
-                    <input type="text" name="lastName" id="lastName" required>
+                    <input class="register-field" type="text" name="lastName" id="lastName" required>
+                    <span class="error-message" id="lastNameError">You must enter your last name.</span>
                 </div>
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" name="email" id="email" title="Please enter a valid email address" required>
+                    <input class="register-field" type="email" name="email" id="email" title="Please enter a valid email address" required>
+                    <span class="error-message" id="emailError">Please enter a valid email address.</span>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" title="Minimum 8 characters and contain at least one uppercase letter, one lowercase letter, and one number" required>
+                    <input class="register-field" type="password" name="password" id="password" title="Minimum 8 characters and contain at least one uppercase letter, one lowercase letter, and one number" required>
+                    <span class="error-message" id="passwordError">Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number.</span>
                 </div>
                 <div class="form-group">
                     <label for="confirmPassword">Confirm password</label>
-                    <input type="password" name="confirmPassword" id="confirmPassword" title="Passwords must match" required>
+                    <input class="register-field" type="password" name="confirmPassword" id="confirmPassword" title="Passwords must match" required>
+                    <span class="error-message" id="confirmPasswordError">Passwords must match.</span>
                 </div>
                 
                 <div class="form-group">
-                    <input type="checkbox" name="terms" id="terms" required><span>I agree all information is correct</span>
+                    <input type="checkbox" class="register-field" name="terms" id="terms" required><span>I agree all information is correct</span>
+                    <span class="error-message" id="termsError">You must agree to the terms.</span>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn" id="registerSubmit" value="Register" disabled>
@@ -56,13 +62,13 @@
             </form>
         </div>
         <div class="page-content-right">
-            Already have an account? <a href="login.html">Login here</a>.
+            <p>Already have an account? <a href="login.html">Login here</a>.</p>
         </div>
     </div>
     <div class="footer-row">
         <small>&copy; 2026 Work Management. All rights reserved.</small></p>
     </div>
-
+    <script type="text/javascript" src="js/registerScripts.js"></script>
     <script src="https://kit.fontawesome.com/8b41e2246c.js" crossorigin="anonymous"></script>
 </body>
 </html>
