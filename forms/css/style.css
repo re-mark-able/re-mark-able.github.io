@@ -72,21 +72,21 @@ a:not(.header-link):hover {
 }
 
 /* 2. Theme Modifier (.header-link) */
-.header-link{
+.header-link, button.btn { 
   color: #fff;
   background-color: #052e74; /* Bootstrap Blue */
   border-color: #052e74;
 }
 
 /* Hover State */
-.header-link:hover {
+.header-link:hover, button.btn:hover {
   color: #fff;
   background-color: #6981eb; /* Darkened Blue */
   border-color: #6981eb;
 }
 
 /* Focus / Accessibility State */
-.header-link:focus {
+.header-link:focus, button.btn:focus {
   color: #fff;
   background-color: #6981eb;
   border-color: #6981eb;
@@ -96,15 +96,15 @@ a:not(.header-link):hover {
 }
 
 /* Active / Clicked State */
-.header-link:active {
+.header-link:active, button.btn:active {
   color: #fff;
   background-color: #6981eb;
   border-color: #0a53be;
 }
 
 /* Disabled State */
-.header-link:disabled, 
-.header-link.disabled {
+.header-link:disabled, button.btn:disabled,
+.header-link.disabled, button.btn.disabled {
   pointer-events: none;
   opacity: 0.65;
 }
@@ -173,4 +173,71 @@ a:not(.header-link):hover {
     display: flex;
     padding: 0 5px;
     justify-content: space-between;
+}
+
+/* FORMS */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    
+    background-color: transparent;
+    border: 1px solid transparent;
+    
+    transition: color 0.15s ease-in-out, 
+                background-color 0.15s ease-in-out, 
+                border-color 0.15s ease-in-out, 
+                box-shadow 0.15s ease-in-out;
+}
+.form-group {
+  position: relative;
+  margin-top: 20px; /* Space for the label overlapping the top */
+  width: 100%;
+  max-width: 300px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input[type="checkbox"] {
+  float:left;
+  width: auto;
+}
+.form-group span {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.form-group label {
+  position: absolute;
+  left: 0px;
+  top: -14px; 
+  font-size: 12px;
+  font-weight: 500;
+  color: #4a5568;
+  padding: 0 4px; 
+  transition: 0.2s ease all;
+  pointer-events: none; 
+}
+
+/* Optional: Highlight the label when the input is focused */
+.form-group input:focus + label {
+  color: #3182ce;
 }
