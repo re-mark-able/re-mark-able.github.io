@@ -10,9 +10,9 @@ function validateChange() {
     var allowSubmit = true;
     // Validate both are not empty
     
-         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-         const nameRegex = /^[a-zA-Z0-9 -]+$/;
-         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         var nameRegex = /^[a-zA-Z0-9 -]+$/;
+         var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
          if (firstName === "" || !nameRegex.test(firstName)) {
             document.getElementById("firstName").classList.add("error");
@@ -68,7 +68,7 @@ function validateChange() {
 window.onload = function() {
     "use strict";
 
-    const loginFields = document.querySelectorAll(".register-field");
+    var loginFields = document.querySelectorAll(".register-field");
     loginFields.forEach(function(field) {
         field.addEventListener("input", function (e) {
             validateChange(e.target);
@@ -86,13 +86,13 @@ window.onload = function() {
     if (loginForm.addEventListener) {
         loginForm.addEventListener("submit", function (e) {
             e.preventDefault();
-            const form = document.getElementById("registerForm");
-            const formData = new FormData(form);
-            const submitData = {};
+            var form = document.getElementById("registerForm");
+            var formData = new FormData(form);
+            var submitData = {};
             formData.forEach((value, key) => {
                 submitData[key] = value;
             });
-            const userData = {
+            var userData = {
                 firstName: document.getElementById("firstName").value,
                 email: document.getElementById("email").value,
             };

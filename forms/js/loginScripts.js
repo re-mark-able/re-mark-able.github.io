@@ -7,7 +7,7 @@ function validateChange() {
     var allowSubmit = true;
     // Validate both are not empty
     
-         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+         var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (password === "") {
             document.getElementById("password").classList.add("error");
             document.getElementById("passwordError").style.display = "inline-block";
@@ -32,7 +32,7 @@ function validateChange() {
 window.onload = function() {
     "use strict";
 
-    const loginFields = document.querySelectorAll(".login-field");
+    var loginFields = document.querySelectorAll(".login-field");
     loginFields.forEach(function(field) {
         field.addEventListener("input", function (e) {
             validateChange(e.target);

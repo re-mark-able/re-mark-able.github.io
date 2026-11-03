@@ -1,7 +1,7 @@
 
 function validateChange() {
     "use strict";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var emailAddress = document.getElementById("email").value;
 
     // Validate not empty and valid email format
