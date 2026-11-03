@@ -1,0 +1,176 @@
+/* Colour Palette */
+/* Primary: #36578f */
+/* Secondary: #052e74 */
+/* Tertiary: #6981eb */
+/* Quaternary: #9babc7 */
+/* Quinary: #cdd5e3 */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+body, html {
+    background-color: #cdd5e3;
+    padding: 0;
+    margin: 0;
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+a:not(.header-link) {
+    text-decoration: none;
+    color: #052e74;
+}
+a:not(.header-link):hover {
+    text-decoration: underline;
+    color: #6981eb;
+}
+
+
+.header-row {
+  background-color: #36578f;
+  display: flex;
+  padding: 0px 20px;
+  justify-content: space-between;
+}
+.header-title {
+    float: left;
+}
+.header-nav {
+    float: right;
+}
+.header-nav > ul {
+  list-style-type: none;
+  display: flex;
+
+}
+.header-link {
+    margin: 2px;
+    display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+
+  /* Sizing & Spacing */
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+
+  /* Default Border & Background Reset */
+  background-color: transparent;
+  border: 1px solid transparent;
+
+  /* Smooth Transitions */
+  transition: color 0.15s ease-in-out, 
+              background-color 0.15s ease-in-out, 
+              border-color 0.15s ease-in-out, 
+              box-shadow 0.15s ease-in-out;
+}
+
+/* 2. Theme Modifier (.header-link) */
+.header-link{
+  color: #fff;
+  background-color: #052e74; /* Bootstrap Blue */
+  border-color: #052e74;
+}
+
+/* Hover State */
+.header-link:hover {
+  color: #fff;
+  background-color: #6981eb; /* Darkened Blue */
+  border-color: #6981eb;
+}
+
+/* Focus / Accessibility State */
+.header-link:focus {
+  color: #fff;
+  background-color: #6981eb;
+  border-color: #6981eb;
+  outline: 0;
+  /* Soft blue glow */
+  box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5); 
+}
+
+/* Active / Clicked State */
+.header-link:active {
+  color: #fff;
+  background-color: #6981eb;
+  border-color: #0a53be;
+}
+
+/* Disabled State */
+.header-link:disabled, 
+.header-link.disabled {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.page-content {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px; 
+  padding-left: 15px;  
+  padding-top: 20px;
+  min-height: 95vh; 
+
+}
+.page-content-with-children {
+      display: flex;
+  align-items: flex-start;
+}
+.page-content-left {
+  width: 50%;
+  float: left;
+  padding: 0px;
+}
+.page-content-right {
+
+  width: 50%;
+  float: right;
+  padding: 15px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+@media (min-width: 576px) {
+  .page-content {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-content {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .page-content {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page-content {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .page-content {
+    max-width: 1320px;
+  }
+}
+
+.footer-row {
+    background-color: #36578f;
+    color: #c0c0c0;
+    text-align: right;
+    display: flex;
+    padding: 0 5px;
+    justify-content: space-between;
+}
