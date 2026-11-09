@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+  <style>
+    html, body {
+      height: 360px;
+      width: 300px;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div id="terri" style="position: relative;  width: 300px; height: 360px;"><div style="z-index: 1;  width: 300px; height: 360px; position: absolute; top: 0; color: #F6CFFF; font-weight: bold; font-size: 2.75em;"><span id="terriTitle" >Terri is retiring!</span></div>
+<iframe style="position: absolute; z-index: 0; top: 0;" src="https://giphy.com/embed/3o7aCPXZr7cY5Hs0jS" width="300" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<div style="position: absolute; bottom: 0;"><span id="terriCountdown" style="color: white; font-weight: bold; font-size: 2.5em;"></span></div></div>
+
+<script>
+// Set the date we're counting down to
+
+var countDownDateT = new Date("Nov 11, 2026 00:00:00");
+
+// Update the count down every 1 second
+var xT = setInterval(function() {
+
+  // Get today's date and time
+  var nowT = new Date();
+
+  // Find the distance between now and the count down date
+  var distanceT = Math.abs(countDownDateT.getTime() - nowT.getTime());
+ 
+  // Time calculations for days, hours, minutes and seconds
+  var daysT = Math.floor(distanceT / (1000 * 60 * 60 * 24));
+  var hoursT = Math.floor((distanceT % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutesT = Math.floor((distanceT % (1000 * 60 * 60)) / (1000 * 60));
+  var secondsT = Math.floor((distanceT % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("terriCountdown").innerHTML = daysT + "d " + hoursT + "h "
+  + minutesT + "m " + secondsT + "s";
+}, 1000);
+</script>
+</body>
+</html>
