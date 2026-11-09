@@ -16,8 +16,10 @@
 			margin: 0px;
 		}
 		    #christmas {
-				background: url('http://thunderbolt:8090/download/attachments/594968663/giphy.gif?version=1&modificationDate=1564021262459&api=v2') repeat;
+				z-index: 1; position: relative;  width: 300px; height: 360px;
+				background: transparent;
 				font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+				top: 0; color: red; font-weight: bold; font-size: 3em;
 			}
 		
     #xmasTitle {
@@ -28,9 +30,8 @@
 </head>
 <body>
 <!-- Display the countdown timer in an element -->
-<div id="christmas" style="position: relative;  width: 300px; height: 360px;">
-	<div style="z-index: 1;  width: 300px; height: 360px; position: absolute; top: 0; color: red; font-weight: bold; font-size: 3em;">
-	<span id="xmasTitle" >Countdown to Christmas</span>
+<div id="christmas">
+	<span id="xmasTitle"></span>
 </div>
 <iframe style="position: absolute; z-index: 0; top: 0;" src="https://giphy.com/embed/ZcnwOpPTw9Ucw" width="300" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
 <div style="position: absolute; bottom: 0;">
