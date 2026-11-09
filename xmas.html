@@ -1,0 +1,63 @@
+<!doctype html>
+<body>
+<link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
+<!-- Display the countdown timer in an element -->
+<div id="christmas" style="position: relative;  width: 300px; height: 360px;"><div style="z-index: 1;  width: 300px; height: 360px; position: absolute; top: 0; color: red; font-weight: bold; font-size: 3em;"><span id="xmasTitle" >Countdown to Christmas</span></div>
+<iframe style="position: absolute; z-index: 0; top: 0;" src="https://giphy.com/embed/ZcnwOpPTw9Ucw" width="300" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<div style="position: absolute; bottom: 0;"><span id="demo" style="color: white; font-weight: bold; font-size: 2.5em;text-shadow: -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red, 1px 1px 0 red;"></span><br /><span id="payDays" style="color: #000"></span></div></div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#christmas').css('background',"url('http://thunderbolt:8090/download/attachments/594968663/giphy.gif?version=1&modificationDate=1564021262459&api=v2') repeat");
+    $('#xmasTitle').css('font-family', "'Mountains of Christmas', cursive");
+	$('#christmas').css('font-family','-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Fira Sans","Droid Sans","Helvetica Neue",sans-serif');
+});
+</script>
+<script>
+// Set the date we're counting down to
+var today = new Date();
+var year = today.getFullYear();
+if( today.getMonth() == 11 && today.getDate() > 24) {
+ year = year + 1;
+}
+
+var countDownDate = new Date("Dec 25, " + year + " 00:00:00");
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date();
+
+  // Find the distance between now and the count down date
+  var distance = Math.abs(countDownDate.getTime() - now.getTime());
+ //var pays= Math.floor(distance / (1000 * 60 * 60 * 24 * 7) / 2);
+
+let pDays = 1 + Math.round((countDownDate - now)/(24*3600*1000));
+let pSum = function(a,b) {
+return a + Math.floor( (pDays + (now.getDate()+6-b) % 7) /7)};
+let pDayDays = [4];
+let pays = Math.floor(pDayDays.reduce(pSum,0) / 2);
+
+
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s";
+  document.getElementById("payDays").innerHTML = "(" + pays + " pays)";
+document.getElementById("xmasTitle").innerHTML = "Christmas " + now.getFullYear() + "<br />Countdown";
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+</body>
+</html>
