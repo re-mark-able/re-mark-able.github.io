@@ -78,7 +78,7 @@ let pays = Math.floor(pDayDays.reduce(pSum,0) / 2);
   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s";
   document.getElementById("payDays").innerHTML = "(" + pays + " pays)";
-document.getElementById("xmasTitle").innerHTML = "Christmas " + now.getFullYear() + "<br />Countdown";
+document.getElementById("xmasTitle").innerHTML = "Christmas " + now.getFullYear();
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
