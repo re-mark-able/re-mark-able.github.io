@@ -6,13 +6,13 @@
   </head>
   <body>
     <fieldset>
-      <legend>
-        <strong>Payment Method:</strong><br /><small
-          >This will change the format of the file.</small
-        >
-      </legend>
+      <div>
+        <strong>Payment Method:</strong>
+        <br />
+        <small><i>This will change the format of the file.</i></small>
+      </div>
       <input
-        class="form-check-input update-values paymentTypeInput"
+        class="form-check-input update-values paymentTypeInput form-field"
         type="radio"
         name="inlineRadioOptions"
         id="inlineRadio1"
@@ -20,14 +20,14 @@
       /><label class="form-check-label" for="inlineRadio1">Mail (mPay)</label
       ><br />
       <input
-        class="form-check-input update-values paymentTypeInput"
+        class="form-check-input update-values paymentTypeInput form-field"
         type="radio"
         name="inlineRadioOptions"
         id="inlineRadio2"
         value="bpay"
       /><label class="form-check-label" for="inlineRadio2">BPay</label><br />
       <input
-        class="form-check-input update-values paymentTypeInput disabled"
+        class="form-check-input update-values paymentTypeInput disabled form-field"
         type="radio"
         name="inlineRadioOptions"
         id="inlineRadio3"
@@ -35,7 +35,7 @@
         disabled
       /><label class="form-check-label" for="inlineRadio3">BPoint</label><br />
       <input
-        class="form-check-input update-values paymentTypeInput disabled"
+        class="form-check-input update-values paymentTypeInput disabled form-field"
         type="radio"
         name="inlineRadioOptions"
         id="inlineRadio4"
@@ -46,21 +46,21 @@
     <fieldset>
       <label for="processDateInput"
         ><strong>Processing Date:</strong><br />
-        <small>Batch can only run once per date.</small></label
+        <small><i>Batch can only run once per date.</i></small></label
       ><br />
       <input
         type="date"
-        class="form-control update-values"
+        class="form-control update-values form-field"
         id="processDateInput"
       />
     </fieldset>
     <fieldset id="paymentTypeSelectField">
       <label for="paymentTypeSelect"
         ><strong>Payment Type:</strong><br />
-        <small>Not always required.</small></label
+        <small><i>Not always required.</i></small></label
       ><br />
       <select
-        class="form-select update-values"
+        class="form-select update-values form-field"
         id="pay-type"
         aria-label="Payment Type"
       >
@@ -75,55 +75,60 @@
     <fieldset>
       <label for="paymentRows"
         ><strong>Rows:</strong><br />
-        <small>Add rows</small></label
+        <small><i>Add rows</i></small></label
       ><br />
       <div id="line-rows">
         <div class="line-row">
-          <input
-            type="text"
-            pattern="\d*"
-            maxlength="17"
-            minlength="12"
-            class="accountNumber update-values"
-            placeholder="000000000000"
-            aria-label="Account Number"
-            required
-          /><input
-            type="text"
-            class="amount update-values"
-            placeholder="00.00"
-            aria-label="Amount"
-            required
-          />
+          <div class="field">
+            <input
+              type="text"
+              pattern="\d*"
+              maxlength="17"
+              minlength="12"
+              class="accountNumber update-values form-field"
+              placeholder="000000000000"
+              aria-label="Account Number"
+              required
+            /><label>Account number</label>
+          </div>
+          <div class="field">
+            <input
+              type="text"
+              class="amount update-values form-field"
+              placeholder="0.00"
+              required
+            /><label>Amount ($)</label>
+          </div>
         </div>
       </div>
-      
-        <button id="addRowBtn" type="button" onClick="addRow()">
-          <i class="fa-solid fa-plus"></i> Add Row</button
-        ><button
-          id="deleteRowBtn"
-          disabled
-          class="btn btn-danger delete-row disabled"
-          type="button"
-          onClick="deleteRow()"
-        >
-          <i class="fa-solid fa-trash-can"></i> Delete Row
-        </button>
-   
+
+      <button id="addRowBtn" type="button" onClick="addRow()">
+        <i class="fa-solid fa-plus"></i> Add Row</button
+      ><button
+        id="deleteRowBtn"
+        disabled
+        class="btn btn-danger delete-row disabled"
+        type="button"
+        onClick="deleteRow()"
+      >
+        <i class="fa-solid fa-trash-can"></i> Delete Row
+      </button>
     </fieldset>
-     <fieldset>
-        <label for="result"
-          ><strong>Result:</strong><br /><small
-            >Save the file to <u>test-warthog\paymentcontractor\in</u></small
-          ></label
-        ><br />
-        <textarea
-          id="exampleFormControlTextarea1"
-          rows="10"
-          cols="50"
-          readonly
-        ></textarea>
-      </fieldset>
+    <fieldset>
+      <label for="result"
+        ><strong>Result:</strong><br /><small
+          ><i
+            >Save the file to <u>test-warthog\paymentcontractor\in</u></i
+          ></small
+        ></label
+      ><br />
+      <textarea
+        id="exampleFormControlTextarea1"
+        rows="10"
+        cols="50"
+        readonly
+      ></textarea>
+    </fieldset>
     <fieldset>
       <button type="button" onClick="copyResult()">
         <i class="fa-regular fa-copy"></i> Copy

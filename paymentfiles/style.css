@@ -26,6 +26,9 @@ button {
   cursor: pointer;
   border-radius: 5px;
 }
+button:hover {
+  background-color: #e0e0e0;
+}
 
 input[type="text"] {
   font-family: "Josefin Sans", sans-serif;
@@ -59,4 +62,41 @@ select {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid #ccc;
+}
+
+.line-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+}
+
+.field input {
+  width: 100%;
+  transition: 0.2s;
+}
+
+.field label {
+  position: absolute;
+  left: 2px;
+  font-size: 14px;
+  color: #94a3b8; /* abu-abu default */
+  background: #fff;
+  padding: 0 6px;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+/* Saat focus aktif → label biru */
+.field.active input {
+  border-color: #2563eb;
+}
+
+.field.active label {
+  color: #2563eb;
 }

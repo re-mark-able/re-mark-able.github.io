@@ -165,7 +165,20 @@ function checkFields() {
   for (let i of changeFields) {
     i.addEventListener("change", update);
   }
+    const fields = document.querySelectorAll('.form-field');
+
+  fields.forEach(input => {
+    input.addEventListener('focus', () => {
+      input.parentElement.classList.add('active');
+    });
+
+    input.addEventListener('blur', () => {
+      input.parentElement.classList.remove('active');
+    });
+  });
   update();
 }
+
+
 
 checkFields();
