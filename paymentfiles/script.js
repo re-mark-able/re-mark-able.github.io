@@ -140,6 +140,57 @@ function update() {
         "98,426782144,1," + (rows.length + 4) + "/",
         "99,426782144,1," + (rows.length + 6) + "/",
       );
+    } else if (type == "bpoint") {
+      let rows = document.querySelectorAll(".line-row");
+      lines.push(
+        "01,CBABPAY,BPOINT," +
+          today.getFullYear() +
+          (today.getMonth() + 1 < 10
+            ? "0" + (today.getMonth() + 1)
+            : today.getMonth() + 1) +
+          (today.getDate() < 10 ? "0" + today.getDate() : today.getDate()) +
+          ",0042,1,,,2/",
+        "02,132043,CBA,1," +
+          today.getFullYear() +
+          (today.getMonth() + 1 < 10
+            ? "0" + (today.getMonth() + 1)
+            : today.getMonth() + 1) +
+          (today.getDate() < 10 ? "0" + today.getDate() : today.getDate()) +
+          ",,,4/",
+            "03,5353109690955674,,231,16599800,1043,,250,,0,,550,0,0,/" 
+      );
+      var rowLines = [];
+      var rowTotal = 0;
+      for (let r = 0; r < rows.length; r++) {
+        let amount = rows[r].querySelector(".amount");
+        let accountNumber = rows[r].querySelector(".accountNumber");
+       
+        rowTotal = rowTotal + parseFloat(amount.value.replace(".", ""));
+        const min = 1000000000000;
+        const max = 9999999999999;
+        let randNum = Math.floor(Math.random() * (max - min + 1)) + min; //random number between 1000 and 9999));
+        rowLines.push(
+          "30,399," +
+            parseFloat(amount.value.replace(".", "")) +
+            ",0,888"+randNum+"," +
+            accountNumber.value +
+            ",0,05,101," +
+            today.getFullYear() +
+            (today.getMonth() + 1 < 10
+              ? "0" + (today.getMonth() + 1)
+              : today.getMonth() + 1) +
+            (today.getDate() < 10 ? "0" + today.getDate() : today.getDate()) +
+            ",173118,WEB,,,,,,,0,,/",
+        );
+      }
+      lines.push(rowLines.join("\r\n"));
+
+      //PUSH EACH ROW
+      lines.push(
+        "49," + rowTotal + "," + (rows.length + 2) + "/",
+        "98," + rowTotal + ",1," + (rows.length + 4) + "/",
+        "99," + rowTotal + ",1," + (rows.length + 6) + "/",
+      );
     } else {
       // do nothing
     }
