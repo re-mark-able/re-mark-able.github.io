@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <fieldset>
+      <legend>
+        <strong>Payment Method:</strong><br /><small
+          >This will change the format of the file.</small
+        >
+      </legend>
+      <input
+        class="form-check-input update-values paymentTypeInput"
+        type="radio"
+        name="inlineRadioOptions"
+        id="inlineRadio1"
+        value="mpay"
+      /><label class="form-check-label" for="inlineRadio1">Mail (mPay)</label
+      ><br />
+      <input
+        class="form-check-input update-values paymentTypeInput"
+        type="radio"
+        name="inlineRadioOptions"
+        id="inlineRadio2"
+        value="bpay"
+      /><label class="form-check-label" for="inlineRadio2">BPay</label><br />
+      <input
+        class="form-check-input update-values paymentTypeInput disabled"
+        type="radio"
+        name="inlineRadioOptions"
+        id="inlineRadio3"
+        value="bpoint"
+        disabled
+      /><label class="form-check-label" for="inlineRadio3">BPoint</label><br />
+      <input
+        class="form-check-input update-values paymentTypeInput disabled"
+        type="radio"
+        name="inlineRadioOptions"
+        id="inlineRadio4"
+        value="apo"
+        disabled
+      /><label class="form-check-label" for="inlineRadio4">APO Payment</label>
+    </fieldset>
+    <fieldset>
+      <label for="processDateInput"
+        ><strong>Processing Date:</strong><br />
+        <small>Batch can only run once per date.</small></label
+      ><br />
+      <input
+        type="date"
+        class="form-control update-values"
+        id="processDateInput"
+      />
+    </fieldset>
+    <fieldset id="paymentTypeSelectField">
+      <label for="paymentTypeSelect"
+        ><strong>Payment Type:</strong><br />
+        <small>Not always required.</small></label
+      ><br />
+      <select
+        class="form-select update-values"
+        id="pay-type"
+        aria-label="Payment Type"
+      >
+        <option selected disabled>Select one</option>
+        <option value="66351">Vehicle Renewal</option>
+        <option value="66352">Driver Renewal</option>
+        <option value="66353">Firearm Renewal</option>
+        <option value="66354">Transfer/Plate Payment</option>
+        <option value="66355">Infringement</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="paymentRows"
+        ><strong>Rows:</strong><br />
+        <small>Add rows</small></label
+      ><br />
+      <div id="line-rows">
+        <div class="line-row">
+          <input
+            type="text"
+            pattern="\d*"
+            maxlength="17"
+            minlength="12"
+            class="accountNumber update-values"
+            placeholder="000000000000"
+            aria-label="Account Number"
+            required
+          /><input
+            type="text"
+            class="amount update-values"
+            placeholder="00.00"
+            aria-label="Amount"
+            required
+          />
+        </div>
+      </div>
+      
+        <button id="addRowBtn" type="button" onClick="addRow()">
+          <i class="fa-solid fa-plus"></i> Add Row</button
+        ><button
+          id="deleteRowBtn"
+          disabled
+          class="btn btn-danger delete-row disabled"
+          type="button"
+          onClick="deleteRow()"
+        >
+          <i class="fa-solid fa-trash-can"></i> Delete Row
+        </button>
+   
+    </fieldset>
+     <fieldset>
+        <label for="result"
+          ><strong>Result:</strong><br /><small
+            >Save the file to <u>test-warthog\paymentcontractor\in</u></small
+          ></label
+        ><br />
+        <textarea
+          id="exampleFormControlTextarea1"
+          rows="10"
+          cols="50"
+          readonly
+        ></textarea>
+      </fieldset>
+    <fieldset>
+      <button type="button" onClick="copyResult()">
+        <i class="fa-regular fa-copy"></i> Copy
+      </button>
+      <button
+        type="button"
+        id="downloadBtn"
+        onClick=" doDownloadLink()"
+        href=""
+      >
+        <i class="fa-regular fa-floppy-disk"></i> Save
+      </button>
+      <a href="" id="downloadURL" style="display: none"
+        ><i class="fa-solid fa-download"></i> DOWNLOAD</a
+      >
+    </fieldset>
+
+    <script src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/8b41e2246c.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
