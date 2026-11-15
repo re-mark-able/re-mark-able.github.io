@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+	<style>
+		html, body {
+			height: 360px;
+			width: 300px;
+			padding: 0px;
+			margin: 0px;
+			background: transparent;
+		}
+		div {
+			padding: 0px;
+			margin: 0px;
+		}
+		    #christmas {
+				z-index: 1; position: relative;  width: 300px; height: 360px;
+				background: transparent;
+				top: 0; color: red; font-weight: bold; font-size: 3em;
+			} 
+		#xmasTitle {
+				  font-family: "Mountains of Christmas", serif;
+  font-weight: 400;
+  font-style: normal;
+				
+			}
+		#demo {
+			font-family: "Share Tech Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+			color: white;font-size: 2em;text-shadow: -1px -1px 0 red, 1px -1px 0 red, -1px 1px 0 red, 1px 1px 0 red;
+		}
+	#payDays {
+		font-family: Arial;
+		size: 0.25em;
+		color: #000000;
+	}
+	
+	</style>
+</head>
+<body>
+<!-- Display the countdown timer in an element -->
+<div id="christmas">
+	<span id="xmasTitle"></span>
+</div>
+<iframe style="position: absolute; z-index: 0; top: 0;" src="https://giphy.com/embed/ZcnwOpPTw9Ucw" width="300" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<div style="position: absolute; bottom: 0;">
+	<span id="demo"></span><br />
+	<span id="payDays"></span>
+</div>
+</div>
+
+<script type="text/javascript">
+// Set the date we're counting down to
+var today = new Date();
+var year = today.getFullYear();
+if( today.getMonth() == 11 && today.getDate() > 24) {
+ year = year + 1;
+}
+
+var countDownDate = new Date("Dec 25, " + year + " 00:00:00");
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date();
+
+  // Find the distance between now and the count down date
+  var distance = Math.abs(countDownDate.getTime() - now.getTime());
+ //var pays= Math.floor(distance / (1000 * 60 * 60 * 24 * 7) / 2);
+
+let pDays = 1 + Math.round((countDownDate - now)/(24*3600*1000));
+let pSum = function(a,b) {
+return a + Math.floor( (pDays + (now.getDate()+6-b) % 7) /7)};
+let pDayDays = [4];
+let pays = Math.floor(pDayDays.reduce(pSum,0) / 2);
+
+
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s";
+  document.getElementById("payDays").innerHTML = "(" + pays + " pays)";
+document.getElementById("xmasTitle").innerHTML = "Christmas " + now.getFullYear();
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+</body>
+</html>
