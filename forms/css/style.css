@@ -176,14 +176,10 @@ a:not(.header-link):hover {
 }
 
 
-.error {
-    border-color: #e53e3e !important; 
-    background-color: #fff5f5 !important; 
-}
-span.error-message {
+span.error {
     color: #e53e3e !important; 
     font-size: 12px; 
-    display: none; 
+    
 }
 /* FORMS */
 .btn {
@@ -234,7 +230,7 @@ span.error-message {
   color: #4a5568;
 }
 
-.form-group span:not(.error-message) {
+.form-group span:not(.error) {
   display: inline-block;
 }
 
